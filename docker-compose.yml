@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  nginx:
+    image: nginx:1.27-alpine
+    restart: unless-stopped
+    volumes:
+      - ./data/nginx/app.conf:/etc/nginx/conf.d/app.conf
+      - ./data/nginx/conf:/etc/nginx/conf
+      - ./data/www:/var/www/html
+      - ./data/certbot/conf:/etc/letsencrypt
+    ports:
+      - "80:80"
+      - "443:443"
