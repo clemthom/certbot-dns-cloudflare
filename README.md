@@ -12,13 +12,13 @@
 
 ```
 docker run \
-	-v $(pwd)/data/certbot/conf:/etc/letsencrypt \
- 	-v $(pwd)/cloudflare-secret.ini:/etc/.cloudflare-secret.ini \
-	certbot/dns-cloudflare:v2.10.0 \
-	certonly --dns-cloudflare -n \
+    -v $(pwd)/data/certbot/conf:/etc/letsencrypt \
+    -v $(pwd)/cloudflare-secret.ini:/etc/.cloudflare-secret.ini \
+    certbot/dns-cloudflare:v2.10.0 \
+    certonly --dns-cloudflare -n \
     --dns-cloudflare-credentials /etc/.cloudflare-secret.ini \
     --email EMAIL \
- 	-d DOMAIN \
+    -d DOMAIN \
     --agree-tos
 ```
 
@@ -26,9 +26,9 @@ docker run \
 
 ```
 docker run \
-	-v $(pwd)/data/certbot/conf:/etc/letsencrypt \
- 	-v $(pwd)/cloudflare-secret.ini:/etc/.cloudflare-secret.ini \
-	certbot/dns-cloudflare:v2.10.0 certificates
+    -v $(pwd)/data/certbot/conf:/etc/letsencrypt \
+    -v $(pwd)/cloudflare-secret.ini:/etc/.cloudflare-secret.ini \
+    certbot/dns-cloudflare:v2.10.0 certificates
 ```
 
 ### Renew certificates
@@ -36,10 +36,10 @@ docker run \
 ```
 
 docker run \
-	-v $(pwd)/data/certbot/conf:/etc/letsencrypt \
- 	-v $(pwd)/cloudflare-secret.ini:/etc/.cloudflare-secret.ini \
-	certbot/dns-cloudflare:v2.10.0 \
-	renew
+    -v $(pwd)/data/certbot/conf:/etc/letsencrypt \
+    -v $(pwd)/cloudflare-secret.ini:/etc/.cloudflare-secret.ini \
+    certbot/dns-cloudflare:v2.10.0 \
+    renew
 ```
 
 ### Check the newly issued certificate with nginx container
@@ -52,7 +52,7 @@ docker run \
 docker compose up
 ```
 
-* now you should be able to see a Hello world when you go to `https://DOMAIN`
+* now you should be able to see a `Hello world` when you go to `https://DOMAIN`
 
 ### Proxy pass nginx to a port in host machine
 
